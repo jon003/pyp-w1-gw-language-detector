@@ -31,6 +31,17 @@ class TestLanguageDetector(unittest.TestCase):
                     'bin', 'noch', 'dir', 'uns', 'sich', 'nur',
                     'einen', 'kann', 'dem'
                 ]
+            },
+            {
+                'name': 'English',
+                'common_words': [
+                    'the', 'he','at','but','there','of','was','be','not','use',
+                    'and','for','this','what','an','a','on','have','all','each',
+                    'to','are','from','were','which','in','as', 'we','she','is',
+                    'with','in','when','do','you','his','had','your','how','that',
+                    'they','by','can','their','it','I','word','said','if','or','play'
+                ]
+        
             }
         ]
 
@@ -60,6 +71,18 @@ class TestLanguageDetector(unittest.TestCase):
         """
         result = detect_language(text, self.languages)
         self.assertEqual(result, 'German')
+        
+    def test_detect_language_english(self):
+        text = """
+            Messi plays since he was 14 years for the FC Barcelona .
+            At 24, he was top scorer of FC Barcelona , 25
+            the youngest player in La Liga history , the 200 goals
+            scored . Meanwhile, Messi is the only player over 300
+            achieved top-flight and is therefore scorer
+            La Liga .
+        """
+        result = detect_language(text, self.languages)
+        self.assertEqual(result, 'English')
 
     def test_detect_language_mixed_languages(self):
         text = """

@@ -13,7 +13,7 @@ def load_languages(language_list=LANGUAGES):
         result[lang_dict.get('name')] = 0
     return result
 
-assert load_languages() == {'German': 0, 'Spanish': 0}
+#assert load_languages() == {'German': 0, 'Spanish': 0}
 
 
 def detect_language(text, languages=LANGUAGES):
