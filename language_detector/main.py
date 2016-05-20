@@ -29,7 +29,7 @@ def detect_language(text, languages=LANGUAGES):
         langname = lang_dict['name']
         wordlist = lang_dict['common_words']
         results_dict[langname] = len([word for word in text.lower().split() if (word in wordlist)])
-        return max(results_dict, key=results_dict.get)
+    return max(results_dict, key=results_dict.get)
     
 
 
